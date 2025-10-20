@@ -1,12 +1,11 @@
 package fernando.apipasseiolancha.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import javax.annotation.processing.Generated;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Clientes {
@@ -17,6 +16,9 @@ public class Clientes {
     private String nomeDoCliente ;
     private String emailDoCliente;
     private String numeroDoCliente;
+    @OneToMany(mappedBy = "clientes")
+    List<Reservas> reservas =  new ArrayList<>();
+
 
     public Long getId() {
         return id;
